@@ -54,7 +54,8 @@ Feature: Very first settings
     And I should see a "testing" text
 
   Scenario: Wait for refresh of list of products to finish
-    When I wait until mgr-sync refresh is finished
+    When I execute mgr-sync refresh
+    And I wait until mgr-sync refresh is finished
 
 @server_http_proxy
   Scenario: Setup HTTP proxy
