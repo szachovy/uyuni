@@ -20,7 +20,9 @@ Feature: Bootstrap a Red Hat-like minion and do some basic operations on it
     And I select "1-RH-LIKE-KEY" from "activationKeys"
     And I select the hostname of "proxy" from "proxies" if present
     And I click on "Bootstrap"
-    When I accept "rhlike_minion" key in the Salt master
+  
+  Scenario: Check if system is on the list after rebooting
+    When I reboot the "rhlike_minion" host through SSH, waiting until it comes back
     And I follow the left menu "Systems > System List > All"
     And I wait until I see the name of "rhlike_minion", refreshing the page
     And I wait until onboarding is completed for "rhlike_minion"
