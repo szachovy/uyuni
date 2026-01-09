@@ -22,7 +22,7 @@ Feature: Bootstrap a Red Hat-like minion and do some basic operations on it
     And I click on "Bootstrap"
   
   Scenario: Check if system is on the list after rebooting
-    When I reboot the "rhlike_minion" host through SSH, waiting until it comes back
+    When I reboot the "server" host through SSH, waiting until it comes back
     And I follow the left menu "Systems > System List > All"
     And I wait until I see the name of "rhlike_minion", refreshing the page
     And I wait until onboarding is completed for "rhlike_minion"
