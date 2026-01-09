@@ -23,6 +23,7 @@ Feature: Bootstrap a Red Hat-like minion and do some basic operations on it
   
   Scenario: Reboot server
     When I reboot the "server" host through SSH, waiting until it comes back
+    And I wait for "300" second
   
   Scenario: Check if system is on the list
     Given I am authorized for the "Admin" section
