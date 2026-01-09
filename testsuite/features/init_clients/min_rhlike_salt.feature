@@ -21,10 +21,12 @@ Feature: Bootstrap a Red Hat-like minion and do some basic operations on it
     And I select the hostname of "proxy" from "proxies" if present
     And I click on "Bootstrap"
   
-  Scenario: Check if system is on the list after rebooting
+  Scenario: Reboot server
     When I reboot the "server" host through SSH, waiting until it comes back
+  
+  Scenario: Check if system is on the list
     Given I am authorized for the "Admin" section
-    And I follow the left menu "Systems > System List > All"
+    When I follow the left menu "Systems > System List > All"
     And I wait until I see the name of "rhlike_minion", refreshing the page
     And I wait until onboarding is completed for "rhlike_minion"
 
